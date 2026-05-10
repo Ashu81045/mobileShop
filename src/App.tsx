@@ -67,11 +67,50 @@ const categories = [
 ];
 
 const stats = [
-  { label: 'DEVICES REPAIRED', value: '12K+' },
-  { label: 'GENUINE PARTS', value: '100%' },
-  { label: 'PURNIA RADIUS', value: '15KM' },
-  { label: 'HAPPY CLIENTS', value: '5000+' },
+  { label: 'DEVICES REPAIRED', value: '15K+' },
+  { label: 'AUTHENTIC PARTS', value: '100%' },
+  { label: 'EXPERT CARE', value: '24/7' },
+  { label: 'HAPPY CLIENTS', value: '10K+' },
 ];
+
+const Logo = ({ className = "w-10 h-16" }: { className?: string }) => (
+  <svg viewBox="0 0 200 100" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
+    {/* Stylized 'S' Icon Part - matching the 3D-ish feel */}
+    <g transform="translate(5, 10)">
+      <circle cx="45" cy="40" r="42" stroke="currentColor" strokeWidth="0.5" className="opacity-20" />
+      <circle cx="45" cy="40" r="36" stroke="currentColor" strokeWidth="1" strokeDasharray="10 5" className="opacity-10 animate-[spin_60s_linear_infinite]" />
+      
+      {/* 3D-like 'S' shape based on the image layers */}
+      <path 
+        d="M25 25 L70 25 L35 45 L75 45 L40 65 L60 65" 
+        stroke="currentColor" 
+        strokeWidth="10" 
+        strokeLinecap="butt" 
+        strokeLinejoin="miter"
+        className="drop-shadow-[0_0_12px_rgba(0,229,255,0.9)]"
+      />
+      {/* Shadow layer for 3D effect */}
+      <path 
+        d="M27 27 L72 27 L37 47 L77 47 L42 67 L62 67" 
+        stroke="black" 
+        strokeWidth="10" 
+        strokeLinecap="butt" 
+        strokeLinejoin="miter"
+        className="opacity-40"
+      />
+    </g>
+    
+    {/* Text Part matching the logo typography */}
+    <text x="85" y="52" fill="currentColor" className="font-black italic" style={{ fontSize: '32px', letterSpacing: '-0.02em', fontWeight: 900 }}>SHAMIA</text>
+    
+    {/* Line - Text - Line pattern */}
+    <rect x="85" y="65" width="25" height="1.5" fill="currentColor" />
+    <text x="115" y="72" fill="white" className="font-bold" style={{ fontSize: '13px', letterSpacing: '0.4em' }}>MOBILE</text>
+    <rect x="175" y="65" width="20" height="1.5" fill="currentColor" />
+    
+    <text x="88" y="90" fill="currentColor" className="font-medium opacity-90" style={{ fontSize: '8px', letterSpacing: '0.05em' }}>ALL SOLLUTION UNDER ONE ROOF</text>
+  </svg>
+);
 
 export default function App() {
   const [scrolled, setScrolled] = useState(false);
@@ -94,42 +133,38 @@ export default function App() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Request Submitted! Our technician will call you shortly.');
+    alert('Thank you! Our technician will contact you within 30 minutes.');
     setIsBookingOpen(false);
   };
 
   return (
-    <div className="min-h-screen bg-[#050505] text-white selection:bg-blue-500/30 overflow-x-hidden font-sans">
-      {/* Decorative Grid Background */}
-      <div className="fixed inset-0 pointer-events-none opacity-20" 
-           style={{ backgroundImage: 'radial-gradient(circle, #333 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+    <div className="min-h-screen bg-[#030712] text-slate-100 selection:bg-brand-cyan/30 overflow-x-hidden font-sans">
+      {/* Soft Ambient Background */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <div className="absolute inset-0 grain" />
+        <div className="absolute top-0 -left-4 w-72 h-72 bg-brand-cyan/10 rounded-full blur-[128px]" />
+        <div className="absolute bottom-0 -right-4 w-96 h-96 bg-brand-cyan/10 rounded-full blur-[128px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:40px_40px]" />
+      </div>
 
       {/* Navigation */}
       <nav 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-8 py-6 ${
-          scrolled ? 'bg-[#050505]/90 backdrop-blur-2xl border-b border-white/5 py-4' : 'bg-transparent'
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 py-4 ${
+          scrolled ? 'glass py-3' : 'bg-transparent'
         }`}
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-3 group cursor-pointer">
-            <div className="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform shadow-[0_0_20px_rgba(37,99,235,0.4)]">
-              <Zap className="text-white w-7 h-7" />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-2xl font-black tracking-tighter uppercase leading-none">
-                Purnia <span className="text-blue-500 italic">Mobile</span> Care
-              </span>
-              <span className="text-[10px] font-mono tracking-[0.3em] text-gray-500 mt-1">ADVANCED REPAIR HUB</span>
-            </div>
+          <div className="flex items-center group cursor-pointer">
+            <Logo className="w-40 h-20 text-brand-cyan transition-all transform group-hover:scale-105 drop-shadow-[0_0_15px_rgba(0,229,255,0.2)]" />
           </div>
           
-          <div className="hidden md:flex items-center gap-10 text-xs font-bold tracking-[0.2em] uppercase text-gray-400">
-            <a href="#shop" className="hover:text-blue-400 transition-colors">Catalog</a>
-            <a href="#services" className="hover:text-blue-400 transition-colors">Services</a>
-            <a href="#about" className="hover:text-blue-400 transition-colors">Location</a>
+          <div className="hidden md:flex items-center gap-8 text-sm font-medium">
+            <a href="#shop" className="text-slate-400 hover:text-white transition-colors">Catalog</a>
+            <a href="#services" className="text-slate-400 hover:text-white transition-colors">Services</a>
+            <a href="#about" className="text-slate-400 hover:text-white transition-colors">Location</a>
             <button 
               onClick={() => setIsBookingOpen(true)}
-              className="px-6 py-3 bg-white text-black rounded-full hover:bg-blue-500 hover:text-white transition-all transform hover:scale-105"
+              className="px-6 py-2.5 bg-brand-cyan text-black rounded-full font-bold hover:brightness-110 transition-all shadow-lg shadow-brand-cyan/20 active:scale-95"
             >
               Book Service
             </button>
@@ -138,121 +173,110 @@ export default function App() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-24 px-8 overflow-hidden">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center w-full">
+      <section className="relative min-h-[90vh] flex items-center pt-24 px-6 z-10">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
           <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "circOut" }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-mono tracking-[0.2em] uppercase mb-8">
-              <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-              Service Status: Active in Purnia
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-cyan/10 text-brand-cyan rounded-full text-xs font-semibold mb-6">
+              <div className="w-1.5 h-1.5 rounded-full bg-brand-cyan animate-pulse" />
+              Serving Purnia & Surrounding Areas
             </div>
-            <h1 className="text-6xl md:text-[5.5rem] font-black leading-[0.9] tracking-tighter mb-10 uppercase italic">
-              Tech <br />
-              <span className="text-transparent border-t-2 border-l-2 border-white/10 pt-4 pl-4 block">Evolution.</span>
+            <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
+              Expert Repair <br />
+              <span className="text-gradient">Premium Accessories.</span>
             </h1>
-            <p className="text-xl text-gray-500 max-w-lg mb-12 leading-relaxed border-l-2 border-blue-600 pl-6">
-              Purnia's premier destination for high-end mobile parts, designer accessories, and professional door-step repair services.
+            <p className="text-lg text-slate-400 max-w-lg mb-10 leading-relaxed">
+              Purnia's premier destination for genuine mobile parts, expert care, and professional door-step repair services.
             </p>
-            <div className="flex flex-wrap gap-6">
+            <div className="flex flex-wrap gap-4">
               <button 
                 onClick={() => setIsBookingOpen(true)}
-                className="px-10 py-5 bg-blue-600 text-white rounded-2xl font-black text-lg hover:bg-blue-500 transition-all flex items-center gap-3 group shadow-2xl shadow-blue-600/40 uppercase italic"
+                className="px-8 py-4 bg-brand-cyan text-black rounded-2xl font-bold text-lg hover:brightness-110 transition-all flex items-center gap-2 shadow-xl shadow-brand-cyan/20"
               >
-                Schedule Pick-up <Truck className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+                Request Pickup <ChevronRight className="w-5 h-5" />
               </button>
-              <div className="flex items-center gap-4 px-8 py-5 rounded-2xl bg-white/5 border border-white/10 group cursor-pointer hover:bg-white/10 transition-all">
-                <div className="flex flex-col">
-                  <span className="text-[10px] font-mono text-gray-500 uppercase tracking-widest">Call Expert</span>
-                  <span className="font-black text-lg">+91 98765 43210</span>
+              <div className="flex items-center gap-4 p-4 rounded-2xl glass glass-hover transition-all">
+                <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center">
+                  <PhoneCall className="w-6 h-6 text-brand-cyan" />
                 </div>
-                <PhoneCall className="w-6 h-6 text-blue-500 group-hover:animate-bounce" />
+                <div className="flex flex-col pr-4">
+                  <span className="text-xs text-slate-500 font-medium">Direct Line</span>
+                  <span className="font-bold text-lg">+91 98765 43210</span>
+                </div>
               </div>
             </div>
           </motion.div>
 
           <motion.div 
-            initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="relative hidden lg:block"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            className="relative"
           >
-            <div className="relative z-10 w-full aspect-[4/5] rounded-[4rem] overflow-hidden border border-white/10 group">
-              <img 
-                src="https://images.unsplash.com/photo-1601784551446-20c9e07cdbab?q=80&w=1000&auto=format&fit=crop" 
-                alt="Tech core" 
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent" />
-              
-              <div className="absolute bottom-12 left-12 right-12 p-8 rounded-[2rem] bg-black/40 backdrop-blur-xl border border-white/10">
+            <div className="relative z-10 glass p-2 rounded-[2.5rem]">
+              <div className="rounded-[2rem] overflow-hidden bg-slate-900 border border-white/5">
+                <img 
+                  src="https://images.unsplash.com/photo-1601784551446-20c9e07cdbab?q=80&w=1000&auto=format&fit=crop" 
+                  alt="Tech repair" 
+                  className="w-full aspect-[4/5] object-cover hover:scale-105 transition-transform duration-700"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+              <div className="absolute -bottom-6 -right-6 p-6 glass rounded-2xl shadow-2xl">
                 <div className="grid grid-cols-2 gap-8">
                   {stats.map((s, i) => (
-                    <div key={i} className="flex flex-col text-center">
-                      <span className="text-3xl font-black text-blue-400 font-mono tracking-tighter">{s.value}</span>
-                      <span className="text-[8px] font-mono text-gray-500 tracking-[0.3em] mt-1">{s.label}</span>
+                    <div key={i} className="flex flex-col">
+                      <span className="text-2xl font-bold text-brand-cyan leading-none">{s.value}</span>
+                      <span className="text-[10px] font-semibold text-slate-500 mt-1 uppercase">{s.label}</span>
                     </div>
                   ))}
                 </div>
               </div>
             </div>
-            {/* Pulsing light behind image */}
-            <div className="absolute -inset-20 bg-blue-600/20 blur-[120px] rounded-full animate-pulse -z-10" />
-            <div className="absolute -top-10 -right-10 w-40 h-40 bg-purple-600/20 blur-[80px] rounded-full -z-10" />
           </motion.div>
         </div>
       </section>
 
       {/* Product Categories */}
-      <section id="shop" className="py-32 px-8 max-w-7xl mx-auto border-t border-white/5">
-        <div className="flex flex-col md:flex-row justify-between items-end gap-10 mb-20">
-          <div className="max-w-xl">
-            <span className="text-blue-500 font-mono text-[10px] tracking-[0.5em] uppercase block mb-4">Inventory Catalogue</span>
-            <h2 className="text-4xl md:text-7xl font-black uppercase italic leading-none tracking-tighter">
-              The <span className="text-white/40">Hardware</span> <br /> Collection.
-            </h2>
-          </div>
-          <div className="flex gap-4">
-            <button className="px-6 py-4 rounded-full border border-white/10 hover:bg-white/5 transition-all text-[10px] font-mono tracking-widest">SCROLL TO SHOP</button>
-          </div>
+      <section id="shop" className="py-24 px-6 max-w-7xl mx-auto relative z-10">
+        <div className="mb-16">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">Inventory Collection</h2>
+          <p className="text-slate-400">Genuine parts and premium accessories for all major brands.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {categories.map((cat, idx) => (
             <motion.div
               key={cat.id}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="group relative h-[500px] rounded-[3rem] overflow-hidden bg-white/5 border border-white/5 hover:border-blue-500/50 transition-all duration-500"
+              transition={{ duration: 0.4, delay: idx * 0.1 }}
+              className="glass glass-hover p-4 rounded-3xl group transition-all"
             >
-              <img 
-                src={cat.image} 
-                className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:scale-125 group-hover:rotate-6 transition-all duration-1000 origin-center" 
-                alt={cat.title}
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent group-hover:from-blue-900/60 transition-colors" />
-              
-              <div className="absolute top-8 left-8">
-                <span className="text-[9px] font-mono tracking-[0.4em] px-3 py-1 bg-white/10 rounded-full border border-white/10">{cat.tag}</span>
+              <div className="h-56 rounded-2xl overflow-hidden mb-6 relative">
+                <img 
+                  src={cat.image} 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+                  alt={cat.title}
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute top-3 left-3 bg-brand-cyan text-black px-3 py-1 rounded-full text-[10px] font-bold">
+                  {cat.tag}
+                </div>
               </div>
 
-              <div className="absolute inset-0 p-10 flex flex-col justify-end">
-                <div className="w-16 h-16 rounded-[1.5rem] bg-white/5 backdrop-blur-md flex items-center justify-center mb-8 border border-white/10 group-hover:bg-blue-600 transition-colors shadow-xl">
-                  {cat.icon}
+              <div className="px-2 pb-2">
+                <div className="w-10 h-10 rounded-xl bg-brand-cyan/10 flex items-center justify-center mb-4 group-hover:bg-brand-cyan group-hover:text-black transition-colors">
+                  {React.cloneElement(cat.icon as React.ReactElement, { className: "w-5 h-5" })}
                 </div>
-                <h3 className="text-3xl font-black uppercase italic mb-2 tracking-tighter">{cat.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed mb-8 opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0 duration-500">
-                  {cat.description}
-                </p>
-                <div className="w-full h-[1px] bg-white/10 mb-6" />
-                <button className="flex items-center gap-3 text-white font-mono text-[10px] tracking-widest uppercase hover:text-blue-400 transition-colors">
-                  EXPLORE TECH <ChevronRight className="w-4 h-4" />
+                <h3 className="text-xl font-bold mb-2">{cat.title}</h3>
+                <p className="text-slate-500 text-sm mb-6 leading-relaxed">{cat.description}</p>
+                <button className="w-full py-3 rounded-xl bg-white/5 border border-white/10 text-white font-semibold text-sm hover:bg-white hover:text-black transition-all">
+                  Browse Specs
                 </button>
               </div>
             </motion.div>
@@ -261,223 +285,205 @@ export default function App() {
       </section>
 
       {/* Repair Section */}
-      <section id="services" className="py-32 px-8 bg-blue-600 relative overflow-hidden">
-        {/* Abstract shapes */}
-        <div className="absolute top-0 right-0 w-[50%] h-full bg-black/40 skew-x-[-20deg] translate-x-[20%]" />
-        
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center relative z-10">
-          <div className="text-white">
-            <span className="font-mono text-[10px] tracking-[0.5em] uppercase text-blue-200 block mb-6 px-4 py-1.5 rounded-full border border-blue-400 w-fit">Home Repair Engine</span>
-            <h2 className="text-5xl md:text-8xl font-black uppercase italic leading-[0.85] tracking-tighter mb-12">
-              Broken? <br />
-              <span className="text-black inline-block transform -skew-x-12 bg-white px-6">Fixed.</span>
+      <section id="services" className="py-24 px-6 bg-slate-900/50 relative overflow-hidden z-10">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <h2 className="text-3xl md:text-5xl font-bold mb-8">
+              Fast. Reliable. <br />
+              <span className="text-brand-cyan">Zero Hassle.</span>
             </h2>
             
-            <ul className="space-y-8 mb-16">
+            <div className="space-y-6 mb-10">
               {[
-                { t: 'Pick-up Service', d: 'We collect your device from anywhere in Purnia.', i: <Truck /> },
-                { t: 'Speed Fix', d: 'Common repairs done within 24 hours of pick-up.', i: <Zap /> },
-                { t: 'Warranty Guard', d: 'Every repair comes with our 90-day peace of mind.', i: <ShieldCheck /> },
+                { t: 'Free Pickup & Drop', d: 'Available within 15km of Purnia city center.', i: <Truck /> },
+                { t: '90-Day Warranty', d: 'Peace of mind with every hardware replacement.', i: <ShieldCheck /> },
               ].map((item, i) => (
-                <li key={i} className="flex gap-6 items-start group">
-                  <div className="w-14 h-14 bg-white/10 backdrop-blur rounded-2xl flex items-center justify-center shrink-0 border border-white/20 group-hover:bg-white group-hover:text-blue-600 transition-all">
-                    {React.cloneElement(item.i, { className: "w-7 h-7" })}
+                <div key={i} className="flex gap-4 items-center">
+                  <div className="w-12 h-12 rounded-2xl glass flex items-center justify-center shrink-0">
+                    {React.cloneElement(item.i, { className: "w-6 h-6 text-brand-cyan" })}
                   </div>
                   <div>
-                    <h4 className="text-2xl font-black uppercase italic tracking-tight">{item.t}</h4>
-                    <p className="text-blue-100 opacity-70 text-base">{item.d}</p>
+                    <h4 className="font-bold text-lg leading-tight">{item.t}</h4>
+                    <p className="text-slate-500 text-sm mt-0.5">{item.d}</p>
                   </div>
-                </li>
+                </div>
               ))}
-            </ul>
+            </div>
 
             <button 
               onClick={() => setIsBookingOpen(true)}
-              className="px-12 py-6 bg-white text-black rounded-[2rem] font-black text-xl hover:bg-black hover:text-white transition-all uppercase italic flex items-center gap-4 shadow-3xl"
+              className="px-10 py-5 bg-brand-cyan text-black rounded-2xl font-bold text-lg hover:brightness-110 transition-all flex items-center gap-2 shadow-xl shadow-brand-cyan/20"
             >
-              Request Service <ChevronRight className="w-8 h-8" />
+              Start Repair Request
             </button>
           </div>
 
           <div className="relative">
-            <div className="aspect-square rounded-[4rem] border-[20px] border-black/20 overflow-hidden">
+            <div className="glass p-3 rounded-[3rem]">
               <img 
                 src="https://images.unsplash.com/photo-1544006659-f0b21884cb1d?q=80&w=1000&auto=format&fit=crop" 
-                className="w-full h-full object-cover grayscale brightness-50"
-                alt="Repair worker"
+                className="w-full aspect-square object-cover rounded-[2.5rem] opacity-80"
+                alt="Expert repair"
                 referrerPolicy="no-referrer"
               />
             </div>
-            {/* Status Radar */}
-            <div className="absolute -bottom-10 -right-10 p-12 bg-white text-black rounded-[3rem] shadow-2xl flex flex-col items-center">
-              <div className="w-20 h-20 rounded-full border-4 border-blue-600 flex items-center justify-center mb-4 relative">
-                <div className="absolute inset-0 rounded-full border-2 border-blue-400 animate-ping" />
-                <Cpu className="text-blue-600 w-10 h-10" />
-              </div>
-              <span className="text-[10px] font-mono tracking-[0.3em] opacity-40 uppercase">System Status</span>
-              <span className="text-2xl font-black italic uppercase">OPTIMIZED</span>
+            <div className="absolute -bottom-8 -right-8 p-8 glass rounded-full shadow-2xl backdrop-blur-2xl">
+              <Cpu className="text-brand-cyan w-12 h-12 animate-pulse" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Footer / Contact */}
-      <footer id="about" className="pt-32 pb-16 px-8 border-t border-white/5">
+      {/* Footer */}
+      <footer id="about" className="pt-24 pb-12 px-6 relative z-10">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-20 mb-32">
-            <div className="md:col-span-5">
-              <div className="flex items-center gap-3 mb-10">
-                <Zap className="text-blue-500 w-10 h-10" />
-                <span className="text-3xl font-black tracking-tighter uppercase italic">Purnia Mobile Care</span>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
+            <div className="md:col-span-2">
+              <div className="flex items-center mb-8">
+                <Logo className="w-48 h-24 text-brand-cyan" />
               </div>
-              <p className="text-gray-500 text-lg leading-relaxed mb-12 max-w-sm">
-                Revolutionizing device maintenance in Bihar. We blend rapid logistics with high-precision engineering.
+              <p className="text-slate-500 text-lg leading-relaxed max-w-sm mb-10">
+                Purnia's most trusted partner for mobile technical support and premium parts since 2018.
               </p>
               <div className="flex gap-4">
-                {[Instagram, Facebook, Twitter, Mail].map((Icon, i) => (
-                  <a key={i} href="#" className="w-14 h-14 rounded-2xl border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all">
-                    <Icon className="w-6 h-6" />
+                {[Instagram, Facebook, Mail].map((Icon, i) => (
+                  <a key={i} href="#" className="w-12 h-12 rounded-xl glass flex items-center justify-center hover:bg-brand-cyan transition-all hover:text-black">
+                    <Icon className="w-5 h-5" />
                   </a>
                 ))}
               </div>
             </div>
 
-            <div className="md:col-span-3">
-              <h4 className="text-[10px] font-mono tracking-[0.5em] text-blue-500 uppercase mb-10">Headquarters</h4>
-              <p className="text-2xl font-black uppercase italic mb-6 leading-tight">Line Bazar, <br />Purnia, Bihar <br />854301</p>
-              <div className="flex items-center gap-2 text-gray-500 text-sm group cursor-pointer hover:text-white transition-colors">
-                <Globe className="w-4 h-4" /> Open in Google Maps <ChevronRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
-              </div>
+            <div>
+              <h4 className="font-bold text-brand-cyan uppercase text-xs tracking-widest mb-8 italic">Location</h4>
+              <p className="text-slate-300 font-medium">Line Bazar, Near GMC,<br />Purnia, Bihar 854301</p>
             </div>
 
-            <div className="md:col-span-4">
-              <h4 className="text-[10px] font-mono tracking-[0.5em] text-blue-500 uppercase mb-10">Operation Time</h4>
-              <div className="space-y-4 font-black uppercase text-xl italic">
-                <div className="flex justify-between items-center border-b border-white/10 pb-4">
-                  <span>Mon - Sat</span>
-                  <span className="text-gray-400">09:00 - 21:00</span>
-                </div>
-                <div className="flex justify-between items-center border-b border-white/10 pb-4">
-                  <span>Sunday</span>
-                  <span className="text-gray-400">10:00 - 18:00</span>
-                </div>
-              </div>
+            <div>
+              <h4 className="font-bold text-brand-cyan uppercase text-xs tracking-widest mb-8 italic">Help Desk</h4>
+              <p className="text-slate-300 font-medium">+91 98765 43210<br />support@shamia.com</p>
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row items-center justify-between pt-16 border-t border-white/5">
-            <span className="text-[10px] font-mono tracking-widest text-gray-600">© 2026 PMC CORE ENGINE v4.2.0</span>
-            <div className="flex gap-10 mt-8 md:mt-0">
-              <span className="text-[10px] font-mono tracking-widest text-gray-600 hover:text-white cursor-pointer">PRIVACY_PROTOCOL</span>
-              <span className="text-[10px] font-mono tracking-widest text-gray-600 hover:text-white cursor-pointer">SERVICE_TERMS</span>
+          <div className="flex flex-col md:flex-row items-center justify-between pt-12 border-t border-white/5 text-slate-500 text-xs font-medium uppercase tracking-widest">
+            <span>© 2026 Shamia Mobile Hub</span>
+            <div className="flex gap-8 mt-6 md:mt-0">
+              <span className="hover:text-white cursor-pointer transition-colors">Privacy</span>
+              <span className="hover:text-white cursor-pointer transition-colors">Terms</span>
             </div>
           </div>
         </div>
       </footer>
 
-      {/* Booking Modal */}
+      {/* Improved Booking Modal */}
       <AnimatePresence>
         {isBookingOpen && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center p-6">
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsBookingOpen(false)}
-              className="absolute inset-0 bg-black/90 backdrop-blur-xl"
+              className="absolute inset-0 bg-slate-950/80 backdrop-blur-xl"
             />
             <motion.div 
-              initial={{ opacity: 0, scale: 0.9, y: 50 }}
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 50 }}
-              className="relative w-full max-w-2xl bg-[#0a0a0a] border border-white/10 rounded-[3rem] p-12 overflow-hidden shadow-2xl"
-            >
-              <div className="absolute top-0 right-0 p-12 pointer-events-none opacity-5">
-                <Smartphone className="w-64 h-64 -rotate-12" />
-              </div>
-
-              <div className="flex justify-between items-start mb-12 relative z-10">
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="relative w-full max-w-2xl glass rounded-[2.5rem] shadow-2xl flex flex-col max-h-[90vh] overflow-hidden"
+            >              {/* Header */}
+              <div className="px-8 pt-8 pb-4 flex justify-between items-start border-b border-white/5 bg-slate-900/50">
                 <div>
-                  <h3 className="text-4xl font-black uppercase italic tracking-tighter">Schedule Service</h3>
-                  <p className="text-gray-500 font-mono text-[10px] tracking-widest mt-2 uppercase">Technician deployment v1.0</p>
+                  <div className="flex items-center gap-3 mb-2">
+                    <Logo className="w-8 h-8 text-brand-cyan" />
+                    <h3 className="text-3xl font-bold">Book Repair</h3>
+                  </div>
+                  <p className="text-slate-500 text-sm">Specialist technician deployment for Shamia Mobile clients.</p>
                 </div>
                 <button 
                   onClick={() => setIsBookingOpen(false)}
-                  className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-red-500 transition-colors"
+                  className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-white hover:text-black transition-all"
                 >
-                  <X />
+                  <X className="w-5 h-5" />
                 </button>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Form Content - Scrollable */}
+              <div className="p-8 overflow-y-auto custom-scrollbar flex-grow">
+                <form id="booking-form" onSubmit={handleSubmit} className="space-y-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label className="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1 italic">CLIENT_ID</label>
+                      <input 
+                        required
+                        type="text" 
+                        placeholder="John Doe"
+                        className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:ring-2 focus:ring-brand-cyan/50 focus:border-brand-cyan focus:outline-none transition-all placeholder:text-slate-600"
+                        value={formData.name}
+                        onChange={e => setFormData({...formData, name: e.target.value})}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1 italic">COMMS_LINK</label>
+                      <input 
+                        required
+                        type="tel" 
+                        placeholder="+91"
+                        className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:ring-2 focus:ring-brand-cyan/50 focus:border-brand-cyan focus:outline-none transition-all placeholder:text-slate-600"
+                        value={formData.phone}
+                        onChange={e => setFormData({...formData, phone: e.target.value})}
+                      />
+                    </div>
+                  </div>
+
                   <div className="space-y-2">
-                    <label className="text-[10px] font-mono text-blue-500 uppercase tracking-widest ml-4">Full Name</label>
+                    <label className="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1 italic">HARDWARE_MODEL</label>
                     <input 
                       required
                       type="text" 
-                      placeholder="ENTER NAME"
-                      className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 transition-all font-bold"
-                      value={formData.name}
-                      onChange={e => setFormData({...formData, name: e.target.value})}
+                      placeholder="e.g. iPhone 15 Pro"
+                      className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:ring-2 focus:ring-brand-cyan/50 focus:border-brand-cyan focus:outline-none transition-all placeholder:text-slate-600"
+                      value={formData.device}
+                      onChange={e => setFormData({...formData, device: e.target.value})}
                     />
                   </div>
+
                   <div className="space-y-2">
-                    <label className="text-[10px] font-mono text-blue-500 uppercase tracking-widest ml-4">Phone Matrix</label>
+                    <label className="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1 italic">PICKUP_ADDR</label>
                     <input 
                       required
-                      type="tel" 
-                      placeholder="+91 MOBILE"
-                      className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 transition-all font-bold"
-                      value={formData.phone}
-                      onChange={e => setFormData({...formData, phone: e.target.value})}
+                      type="text" 
+                      placeholder="Street, Landmark, Purnia"
+                      className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:ring-2 focus:ring-brand-cyan/50 focus:border-brand-cyan focus:outline-none transition-all placeholder:text-slate-600"
+                      value={formData.address}
+                      onChange={e => setFormData({...formData, address: e.target.value})}
                     />
                   </div>
-                </div>
 
-                <div className="space-y-2">
-                  <label className="text-[10px] font-mono text-blue-500 uppercase tracking-widest ml-4">Device Model</label>
-                  <input 
-                    required
-                    type="text" 
-                    placeholder="E.G. IPHONE 15 / GALAXY S24"
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 transition-all font-bold"
-                    value={formData.device}
-                    onChange={e => setFormData({...formData, device: e.target.value})}
-                  />
-                </div>
+                  <div className="space-y-2 pb-4">
+                    <label className="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1 italic">DIAG_LOG</label>
+                    <textarea 
+                      required
+                      placeholder="Briefly describe what's wrong..."
+                      rows={3}
+                      className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:ring-2 focus:ring-brand-cyan/50 focus:border-brand-cyan focus:outline-none transition-all placeholder:text-slate-600 resize-none"
+                      value={formData.issue}
+                      onChange={e => setFormData({...formData, issue: e.target.value})}
+                    />
+                  </div>
+                </form>
+              </div>
 
-                <div className="space-y-2">
-                  <label className="text-[10px] font-mono text-blue-500 uppercase tracking-widest ml-4">Pick-up Address</label>
-                  <input 
-                    required
-                    type="text" 
-                    placeholder="PURNIA LOCAL ADDRESS"
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 transition-all font-bold"
-                    value={formData.address}
-                    onChange={e => setFormData({...formData, address: e.target.value})}
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-[10px] font-mono text-blue-500 uppercase tracking-widest ml-4">Repair Intelligence</label>
-                  <textarea 
-                    required
-                    placeholder="DESCRIBE THE CORE ISSUE"
-                    rows={3}
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 transition-all font-bold resize-none"
-                    value={formData.issue}
-                    onChange={e => setFormData({...formData, issue: e.target.value})}
-                  />
-                </div>
-
+              {/* Action Button Area - Fixed at Bottom */}
+              <div className="p-8 border-t border-white/5 bg-slate-900/80">
                 <button 
+                  form="booking-form"
                   type="submit"
-                  className="w-full py-6 bg-blue-600 text-white rounded-2xl font-black text-xl hover:bg-blue-500 transition-all uppercase italic flex items-center justify-center gap-4 shadow-2xl shadow-blue-600/40"
+                  className="w-full py-5 bg-brand-cyan text-black rounded-2xl font-bold text-lg hover:brightness-110 transition-all shadow-xl shadow-brand-cyan/25 active:scale-[0.98] flex items-center justify-center gap-2"
                 >
-                  Confirm Request <Send className="w-6 h-6" />
+                  Confirm Pickup Mission <Send className="w-5 h-5" />
                 </button>
-              </form>
+              </div>
             </motion.div>
           </div>
         )}
