@@ -33,7 +33,7 @@ const categories = [
     title: 'New Smartphones',
     description: 'Latest models with full warranty.',
     icon: <Smartphone className="w-8 h-8" />,
-    image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=800&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1592890288564-76628a30a657?q=80&w=800&auto=format&fit=crop',
     color: 'from-blue-500/20 to-cyan-500/20',
     tag: 'NEW RELEASES'
   },
@@ -42,7 +42,7 @@ const categories = [
     title: 'High-Speed Cables',
     description: 'Charging & data sync essentials.',
     icon: <Cpu className="w-8 h-8" />,
-    image: 'https://images.unsplash.com/photo-1589131015935-77983637e72b?q=80&w=800&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1589492477829-5e65395b66cc?q=80&w=800&auto=format&fit=crop',
     color: 'from-purple-500/20 to-pink-500/20',
     tag: 'PREMIUM TECH'
   },
@@ -51,7 +51,7 @@ const categories = [
     title: 'Designer Shields',
     description: 'Stylish protection for every device.',
     icon: <ShieldCheck className="w-8 h-8" />,
-    image: 'https://images.unsplash.com/photo-1586953208448-b95a79798f07?q=80&w=800&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?q=80&w=800&auto=format&fit=crop',
     color: 'from-orange-500/20 to-red-500/20',
     tag: 'ULTRA DURABLE'
   },
@@ -60,7 +60,7 @@ const categories = [
     title: 'Impact Guards',
     description: 'Tempered glass protectors.',
     icon: <ShoppingBag className="w-8 h-8" />,
-    image: 'https://images.unsplash.com/photo-1625467096769-92c2df9e525a?q=80&w=800&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1616348436168-de43ad0db179?q=80&w=800&auto=format&fit=crop',
     color: 'from-green-500/20 to-emerald-500/20',
     tag: '9H HARDNESS'
   }
@@ -204,7 +204,7 @@ export default function App() {
                 </div>
                 <div className="flex flex-col pr-4">
                   <span className="text-xs text-slate-500 font-medium">Direct Line</span>
-                  <span className="font-bold text-lg">+91 98765 43210</span>
+                  <span className="font-bold text-lg">+91 99312 96160</span>
                 </div>
               </div>
             </div>
@@ -219,7 +219,7 @@ export default function App() {
             <div className="relative z-10 glass p-2 rounded-[2.5rem]">
               <div className="rounded-[2rem] overflow-hidden bg-slate-900 border border-white/5">
                 <img 
-                  src="https://images.unsplash.com/photo-1601784551446-20c9e07cdbab?q=80&w=1000&auto=format&fit=crop" 
+                  src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=1000&auto=format&fit=crop" 
                   alt="Tech repair" 
                   className="w-full aspect-[4/5] object-cover hover:scale-105 transition-transform duration-700"
                   referrerPolicy="no-referrer"
@@ -321,7 +321,7 @@ export default function App() {
           <div className="relative">
             <div className="glass p-3 rounded-[3rem]">
               <img 
-                src="https://images.unsplash.com/photo-1544006659-f0b21884cb1d?q=80&w=1000&auto=format&fit=crop" 
+                src="https://images.unsplash.com/photo-1540324155974-7523202daa3f?q=80&w=1000&auto=format&fit=crop" 
                 className="w-full aspect-square object-cover rounded-[2.5rem] opacity-80"
                 alt="Expert repair"
                 referrerPolicy="no-referrer"
@@ -356,12 +356,12 @@ export default function App() {
 
             <div>
               <h4 className="font-bold text-brand-cyan uppercase text-xs tracking-widest mb-8 italic">Location</h4>
-              <p className="text-slate-300 font-medium">Line Bazar, Near GMC,<br />Purnia, Bihar 854301</p>
+              <p className="text-slate-300 font-medium">PWD Colony,<br />Purnia, Bihar 854301</p>
             </div>
 
             <div>
               <h4 className="font-bold text-brand-cyan uppercase text-xs tracking-widest mb-8 italic">Help Desk</h4>
-              <p className="text-slate-300 font-medium">+91 98765 43210<br />support@shamia.com</p>
+              <p className="text-slate-300 font-medium">+91 99312 96160<br />mdmunazir786@gmail.com</p>
             </div>
           </div>
 
