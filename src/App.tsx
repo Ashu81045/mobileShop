@@ -205,6 +205,7 @@ export default function App() {
                 <div className="flex flex-col pr-4">
                   <span className="text-xs text-slate-500 font-medium">Direct Line</span>
                   <span className="font-bold text-lg">+91 99312 96160</span>
+                  <span className="font-bold text-lg">+91 91427 89166</span>
                 </div>
               </div>
             </div>
@@ -346,22 +347,26 @@ export default function App() {
                 Purnia's most trusted partner for mobile technical support and premium parts since 2018.
               </p>
               <div className="flex gap-4">
-                {[Instagram, Facebook, Mail].map((Icon, i) => (
-                  <a key={i} href="#" className="w-12 h-12 rounded-xl glass flex items-center justify-center hover:bg-brand-cyan transition-all hover:text-black">
-                    <Icon className="w-5 h-5" />
-                  </a>
-                ))}
+                <a href="https://www.instagram.com/shamia_mobile" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl glass flex items-center justify-center hover:bg-brand-cyan transition-all hover:text-black">
+                  <Instagram className="w-5 h-5" />
+                </a>
+                <a href="https://www.facebook.com/share/1BHmWfoYBq/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl glass flex items-center justify-center hover:bg-brand-cyan transition-all hover:text-black">
+                  <Facebook className="w-5 h-5" />
+                </a>
+                <a href="https://g.page/r/CR16AM0ybkobEBM/review" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl glass flex items-center justify-center hover:bg-brand-cyan transition-all hover:text-black" title="Leave a review">
+                  <CheckCircle2 className="w-5 h-5" />
+                </a>
               </div>
             </div>
 
             <div>
               <h4 className="font-bold text-brand-cyan uppercase text-xs tracking-widest mb-8 italic">Location</h4>
-              <p className="text-slate-300 font-medium">PWD Colony,<br />Purnia, Bihar 854301</p>
+              <p className="text-slate-300 font-medium">JVR Plaza Cinema Hall Campus,<br />Near Girja Chowk, Purnea,<br />Bihar 854301</p>
             </div>
 
             <div>
               <h4 className="font-bold text-brand-cyan uppercase text-xs tracking-widest mb-8 italic">Help Desk</h4>
-              <p className="text-slate-300 font-medium">+91 99312 96160<br />mdmunazir786@gmail.com</p>
+              <p className="text-slate-300 font-medium">+91 99312 96160<br />+91 91427 89166<br />mdmunazir786@gmail.com</p>
             </div>
           </div>
 
